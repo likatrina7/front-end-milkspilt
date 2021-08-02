@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.question-area {
+  margin: 20px 150px;
+}
+
+.title-input {
+  display: block;
+  margin-bottom: 20px;
+  height: 45px;
+  width: 600px;
+}
+
+.body-input {
+  display: block;
+  margin-bottom: 20px;
+  height: 130px;
+  width: 600px;
+}
+
+.label-style {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+p {
+  margin: 3px;
+}
+
+select {
+  margin-right: 90px;
+  width: 125px;
+}
+
+.form-submit {
+  width: 100px;
+  display: block;
+  position: absolute;
+  right: 61%;
+  margin-top: 15px;
+}
+
+.tags-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.tag-style {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+li {
+  margin: 15px;
+}
+
+.tips-pragraph {
+  line-height: 25px;
+}

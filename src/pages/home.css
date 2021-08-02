@@ -1,0 +1,44 @@
+video {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%; 
+}
+
+video::-webkit-media-controls {
+    display: none;
+}
+
+.daily-question-area {
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+}
+
+.ending-area {
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+}
+
+.ending-area p {
+font-size: 25px;
+font-weight: bold;
+margin: 40px 100px;
+}
+
+.qa-area{
+margin-left: 200px;
+}
+
+.qa-style {
+display: flex;
+flex-direction: row;
+}
+
+h1 {
+margin: 30px 100px;
+font-size: 40px;
+}

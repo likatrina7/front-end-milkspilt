@@ -1,0 +1,20 @@
+.home-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background-color:rgb(85, 84, 84);
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.footer-style {
+    margin: 0 30px;
+}
+
+a {
+    margin: 0 10px;
+    color: white;
+}
