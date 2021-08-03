@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./askQuestion.css";
+import "./AskQuestion.css";
 
 const AskQuestion = () => {
   const [title, setTitle] = useState("");

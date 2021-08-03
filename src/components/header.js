@@ -1,19 +1,14 @@
-import "./header.css";
-import React, { useState } from "react";
+import "./Header.css";
+import React from "react";
 import logo from "../media/milk_spilt_logo.png";
 import { Link, useHistory } from "react-router-dom";
 import Login from "./Login";
 
-const Header = ({ login, handleLogin }) => {
+const Header = () => {
   const history = useHistory();
 
   const handleClickAskQ = () => {
     history.push("/askQuestion");
-  };
-
-  const handleClickLogin = () => {
-    // history.push("/dashboard");
-    handleLogin();
   };
 
   return (
@@ -34,11 +29,6 @@ const Header = ({ login, handleLogin }) => {
       </div>
       <div className="login-area">
         <Login />
-        {/* <button onClick={handleClickLogin}>
-          <a href="https://milkspilt.herokuapp.com/login">
-            {login ? "Log Out" : "Log In｜Sign Up"}
-          </a>
-        </button> */}
       </div>
     </header>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import "./home.css";
+import "./Home.css";
 import video from "../media/home-page-video.mp4";
 import icon from "../media/user-icon.jpg";
 
