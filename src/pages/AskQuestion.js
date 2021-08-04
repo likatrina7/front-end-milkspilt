@@ -26,7 +26,7 @@ const AskQuestion = () => {
       .then((response) => {
         const questionRes = response.data.question;
         if (questionRes) {
-          history.push(`/askQuestion/${questionRes.question_id}`);
+          history.push(`/questions/${questionRes.question_id}`);
         }
       })
       .catch((error) => {

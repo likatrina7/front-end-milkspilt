@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React from "react";
 import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
 import About from "./pages/About.js";
@@ -9,7 +9,7 @@ import NotFound from "./pages/NotFound.js";
 import AskQuestion from "./pages/AskQuestion.js";
 import Question from "./pages/Question.js";
 import Dashboard from "./pages/Dashboard.js";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { UserProvider } from "./UserContext";
 
 function App() {
@@ -23,8 +23,8 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
           <Route exact path="/contact" component={ContactUs} />
-          <Route exact path="/askQuestion" component={AskQuestion} />
-          <Route exact path="/askQuestion/:id" component={Question} />
+          <Route exact path="/questions" component={AskQuestion} />
+          <Route exact path="/questions/:id" component={Question} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route component={NotFound} />
         </Switch>
