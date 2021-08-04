@@ -1,8 +1,10 @@
 import "./Header.css";
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../media/milk_spilt_logo.png";
 import { Link, useHistory } from "react-router-dom";
 import Login from "./Login";
+import Logout from "./Logout";
+import { UserContext } from "../UserContext";
 
 const Header = () => {
   const history = useHistory();
@@ -10,6 +12,8 @@ const Header = () => {
   const handleClickAskQ = () => {
     history.push("/askQuestion");
   };
+
+  const user = useContext(UserContext);
 
   return (
     <header className="home-header">
@@ -27,9 +31,7 @@ const Header = () => {
         </form>
         <button onClick={handleClickAskQ}>Ask Question</button>
       </div>
-      <div className="login-area">
-        <Login />
-      </div>
+      <div className="login-area">{user.id ? <Logout /> : <Login />}</div>
     </header>
   );
 };

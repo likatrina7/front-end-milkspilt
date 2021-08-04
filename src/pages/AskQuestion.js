@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./AskQuestion.css";
+import { UserContext } from "../UserContext";
 
 const AskQuestion = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [age, setAge] = useState("0");
   const [category, setCategory] = useState("sleep");
+  const user = useContext(UserContext);
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,12 +19,15 @@ const AskQuestion = () => {
       content: body,
       age_tag: age,
       cat_tag: category,
-      author_id: 1,
+      author_id: user.id,
     };
     axios
       .post(`${process.env.REACT_APP_BACKEND_URL}/questions`, question)
       .then((response) => {
-        console.log("Response:", response.data.question);
+        const questionRes = response.data.question;
+        if (questionRes) {
+          history.push(`/askQuestion/${questionRes.question_id}`);
+        }
       })
       .catch((error) => {
         console.log("Error:", error);

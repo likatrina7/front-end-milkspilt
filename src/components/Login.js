@@ -1,24 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { GoogleLogin } from "react-google-login";
 import axios from "axios";
+import { UserContext } from "../UserContext";
+import { useHistory } from "react-router-dom";
 
 const clientId =
   "1026535766157-ig1tqfrs60g2mp6jrb2d6htqoqt438l9.apps.googleusercontent.com";
 
-// const refreshTokenSetup = (res) => {
-//   let refreshTiming = (res.tokenObj.expires_in || 3600 - 5 * 60) * 1000;
-
-//   const refreshToken = async () => {
-//     const newAuthRes = await res.reloadAuthResponse();
-//     refreshTiming = (newAuthRes.expires_in || 3600 - 5 * 60) * 1000;
-//     console.log("newAuthRes:", newAuthRes);
-//     console.log("new auth token:", newAuthRes.id_token);
-//     setTimeout(refreshToken, refreshTiming);
-//   };
-//   setTimeout(refreshToken, refreshTiming);
-// };
-
 const Login = () => {
+  const user = useContext(UserContext);
+  const history = useHistory();
+
   const onSuccess = async (res) => {
     try {
       const userInfo = await axios.post(
@@ -27,7 +19,14 @@ const Login = () => {
           token: res.tokenId,
         }
       );
-      // refreshTokenSetup(res);
+      if (userInfo && userInfo.data && userInfo.data.current_user) {
+        const userObj = userInfo.data.current_user;
+        user.setName(userObj.username);
+        user.setId(userObj.author_id);
+        user.setEmail(userObj.email);
+        user.setAvatar(userObj.avatar);
+        history.push("/dashboard");
+      }
     } catch (e) {
       console.log("Error:" + e);
       alert("Couldn't log in.");
@@ -37,6 +36,7 @@ const Login = () => {
   const onFailure = (res) => {
     console.log(res);
   };
+
   return (
     <div>
       <GoogleLogin
