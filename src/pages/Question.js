@@ -1,58 +1,47 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation, useParams } from "react-router-dom";
+import AnswerList from '../components/AnswerList.js'
+
+
 
 const Question = () => {
     const { id } = useParams();
     const [question, setQuestion] = useState("");
-    const [answerId, setAnswerId] = useState([]);
     const [answer, setAnswer] = useState([]);
-    let answers = ['afasdfafa', 'babaab']
+    const [response, setResponse] = useState("");
     let answerid = 0
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_BACKEND_URL}/questions/${id}`)
         .then((response) => {
-            console.log("Response:", response.data);
+            // console.log("Response:", response.data);
             setQuestion(response.data)
-            const newAnswerId = [...answerId]
+            // const newAnswerId = [...answerId]
             for (answerid of response.data.answer) {
-                newAnswerId.push(answerid)
+                getAnswer(answerid)
             }
-            setAnswerId(newAnswerId)
         })
         .catch((error) => {
             console.log("Error:", error);
         });
     }, []);
-
-    useEffect(() => {
-        for (answerid of answerId){
-            console.log("ehlllllll")
-            console.log(answerid)
-            axios.get(`${process.env.REACT_APP_BACKEND_URL}/questions/${answerid}`)
-            .then((response) => {
-                const newAnswer = [...answer]
-                newAnswer.push(response.data.content)
-                setAnswer(newAnswer)
-            })
-            .catch((error) => {
-                console.log("Error:", error);
-        });}
-    }, [answerId]);
-
-    // const answerComponent = ({answers}) => (
-    //     <div className="answer">
-    //         {answers.map((answer) => <div>{ answer }</div>)} 
-    //     </div>
-    // )
-    // console.log(answers)
-    // console.log("sh")
     
+    const getAnswer = (id => {
+        const newAnswer = [...answer]
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/answers/${id}`)
+        .then((response) => {
+            // const newAnswer = [...answer]
+            setAnswer(answer => [...answer, response.data])
+        })
+        .catch((error) => {
+            console.log("Error:", error);
+    });
+    })
 
     return (
         <main>
-            <div className="question">
+            <section className="question">
                 <h1 className="questiontitle">{question.title}</h1>
                 <div className="tag">
                     <span>{question.age}</span>
@@ -62,14 +51,28 @@ const Question = () => {
                     {question.views}
                 </div>
                 <p>{question.content}</p>
-            </div>
-            { answerId ? 
+            </section>
+            { answer ? 
             <section className="answer">
-                <AnswerList/>
+                <AnswerList answers={answer}/>
             </section>
             : 
-            <p>no answers</p>
+            null
             }
+            <section className="response">
+                <form>
+                    <label className="label-style">Answer</label>
+                    <p>Put your answer here</p>
+                    <textarea
+                        name="response"
+                        value={response}
+                        onChange={(e) => setResponse(e.target.value)}
+                        className="response-input"
+                    />
+                </form>
+                <input type="submit" value="Post" className="form-submit" />
+
+            </section>
         </main>
     )
 };
