@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from "react";
+import { UserContext } from "../UserContext";
 
 const ContactUs = () => {
-    return (
-        <div>
-            <h1>Contact Us</h1>
-            <h3>Email Us at customer-service@milkspilt.com</h3>
-        </div>
-    );
+  const user = useContext(UserContext);
+
+  return (
+    <div>
+      <h1>Contact Us</h1>
+      <h3>Email Us at customer-service@milkspilt.com</h3>
+      <p>{user.name}</p>
+    </div>
+  );
 };
 
 export default ContactUs;
