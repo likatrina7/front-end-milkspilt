@@ -102,21 +102,22 @@ const Question = () => {
 
                 <section className="response">
                     <form className="answerForm" onSubmit={handleSubmit}>
-                        <div>
-                            <label className="label-style">Answer</label>
+                        <div  className="label-style">
+                            <label>Answer</label>
                         </div>
-                        <div>
+                        <div className="hint">
                             <p>Share your wisdom here</p>
                         </div>
-                        <div className="response-input">
+                        <div>
                             <textarea
+                                className="response-input"
                                 name="response"
                                 value={response}
                                 onChange={(e) => setResponse(e.target.value)}
                             />
                         </div>
                         <div>
-                            <input type="submit" value="Post"/>
+                            <button className="postbtn">Post</button>
                         </div>
                     </form>
                 </section>

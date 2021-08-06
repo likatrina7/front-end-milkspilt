@@ -4,7 +4,7 @@
 
 .qacontainer {
     display: grid;
-    grid-template-rows: 2fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
     justify-items: center;
 }
 
@@ -34,7 +34,7 @@
 .tagStyle {
     background: #eee;
     border-radius: 3px 0 0 3px;
-    color: #999;
+    color: rgb(130, 203, 245);
     display: inline-block;
     height: 26px;
     line-height: 26px;
@@ -82,18 +82,53 @@
     align-self: center;
     align-content: space-between;
     justify-content: space-between;
+    border-top: grey 2px solid;
 }
 
+
+
+.label-style{
+    margin-top: 20px;
+}
+.hint {
+    margin-top: 20px;
+}
 .answerForm {
     display:grid;
-    grid-template-rows: 1fr 1fr 4fr 1fr;
+    grid-template-rows: 1fr 1fr 3fr 1fr;
     align-content: space-between;
     justify-content: space-between;
 }
 
-.response-input {
+.postbtn{
+    display: inline-block;
     width: 80px;
-    height: 80px;
+    height: 40px;
+    padding: 0.3em 1.2em;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    color:#FFFFFF;
+    background-color:#4eb5f1;
+    text-align:center;
+    transition: all 0.2s;
+}
+    
+.postbtn:hover{
+    background-color: #4095c6;
+}
+
+.response-input {
+	width: 500px;
+	height: 120px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
 }
 
 
