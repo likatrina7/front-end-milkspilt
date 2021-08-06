@@ -62,3 +62,7 @@ li {
 .tips-pragraph {
   line-height: 25px;
 }
+
+.info-body {
+  height: 80vh;
+}

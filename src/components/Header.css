@@ -33,23 +33,53 @@
 
 .co-name {
   text-decoration: none;
+  color: white;
+  font-size: x-large;
+  font-weight: bold;
 }
 
 input {
   width: 500px;
 }
 
-button {
-  margin-left: 5px;
-}
-
-img {
-  height: 50px;
-  margin: 15px;
-  border-radius: 33px;
+.logo {
+  border-radius: 13px;
 }
 
 a {
   text-decoration: none;
   color: black;
+}
+
+.searchTerm {
+  border: 3px solid #4eb5f1;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9dbfaf;
+}
+
+.searchTerm:focus {
+  color: black;
+}
+
+.searchButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 36px;
+  border: 1px solid #4eb5f1;
+  background: #4eb5f1;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.searchButton:hover {
+  color: #444849;
 }

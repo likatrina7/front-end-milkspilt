@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { UserContext } from "../UserContext";
+import "./StatPages.css";
 
 const About = () => {
   const user = useContext(UserContext);
 
   return (
-    <div>
+    <div className="info-body">
       <h1>About Milk Spilt</h1>
       <h3>
         Parents will have a lot questions they want to find answers to, or some
