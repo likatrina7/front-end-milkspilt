@@ -1,11 +1,21 @@
 .questiontitle {
-    margin: 30px 150px 5px 150px
+    margin: 30px 50px 5px 50px;
+    font-size: 30px;
 }
 
 .qacontainer {
     display: grid;
-    grid-template-rows: repeat(2, 1fr);
+    /* grid-template-rows: repeat(3, 1fr); */
+    grid-template-rows: 2fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
     justify-items: center;
+}
+
+.question {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
 }
 
 .views {
@@ -83,6 +93,10 @@
     align-content: space-between;
     justify-content: space-between;
     border-top: grey 2px solid;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
 }
 
 
@@ -124,7 +138,8 @@
 }
 
 .response-input {
-	width: 500px;
+    resize: none;
+	width: 400px;
 	height: 120px;
 	border: 3px solid #cccccc;
 	padding: 5px;

@@ -30,6 +30,7 @@ const Question = () => {
         })
         .catch((error) => {
             console.log("Error:", error);
+            alert("Question not exist.")
         });
     }, []);
     
@@ -57,14 +58,13 @@ const Question = () => {
           .then((response) => {
             const answerRes = response.data.answer;
             setAnswer(answer => [...answer, response.data.answer])
-            console.log(answerRes)
             if (answerRes) {
               history.push(`/questions/${answerRes.question_id}`);
             }
           })
           .catch((error) => {
             console.log("Error:", error);
-            alert("Couldn't submit the answer.");
+            alert("Couldn't submit the answer, please leave something here.");
           });
       };
     const getRelativeTime = (time => {
@@ -78,6 +78,7 @@ const Question = () => {
     console.log(askTime)
 
     return (
+
         <main>
             <div className="qacontainer">
                 <section className="question">
@@ -121,7 +122,7 @@ const Question = () => {
                         </div>
                     </form>
                 </section>
-            </div>
+        </div>
         </main>
     )
 };
