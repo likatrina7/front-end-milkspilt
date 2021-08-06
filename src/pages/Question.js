@@ -83,8 +83,8 @@ const Question = () => {
                 <section className="question">
                     <h1 className="questiontitle">{question.title}</h1>
                     <div className="qtag">
-                        <div className='tag'>{question.age}</div>
-                        <div className='tag'>{question.category}</div>
+                        <div className='tagStyle'>{question.age}</div>
+                        <div className='tagStyle'>{question.category}</div>
                     </div>
                     <div className="views">
                         <div className="view">Viewed {question.views} times</div>
@@ -101,16 +101,23 @@ const Question = () => {
                 </section>
 
                 <section className="response">
-                    <form onSubmit={handleSubmit}>
-                        <label className="label-style">Answer</label>
-                        <p>Share your wisdom here</p>
-                        <textarea
-                            name="response"
-                            value={response}
-                            onChange={(e) => setResponse(e.target.value)}
-                            className="response-input"
-                        />
-                        <input type="submit" value="Post"/>
+                    <form className="answerForm" onSubmit={handleSubmit}>
+                        <div>
+                            <label className="label-style">Answer</label>
+                        </div>
+                        <div>
+                            <p>Share your wisdom here</p>
+                        </div>
+                        <div className="response-input">
+                            <textarea
+                                name="response"
+                                value={response}
+                                onChange={(e) => setResponse(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <input type="submit" value="Post"/>
+                        </div>
                     </form>
                 </section>
             </div>
