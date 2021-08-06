@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const Answer = (props) => {
-    console.log('answer props', props)
+    // console.log('answer props', props)
     return (
       <div className='answer_container'>
           <div className='answer_content'>
