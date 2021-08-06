@@ -13,6 +13,7 @@
 .tips-area {
   width: 30%;
   margin-top: 5%;
+  color: #848d95;
 }
 
 .aq-title {
@@ -51,6 +52,25 @@ select {
 .form-submit {
   width: 100px;
   margin-top: 40px;
+  display: inline-block;
+  padding: 0.5em 0.5em;
+  border-radius: 5px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  background-color: #4eb5f1;
+  text-align: center;
+  transition: all 0.2s;
+  font-weight: bold;
+  border-width: 1px;
+  border-color: darkgray;
+  font-size: 16px;
+}
+
+.form-submit:hover {
+  background-color: #4095c6;
 }
 
 .form-submit:last-child {
