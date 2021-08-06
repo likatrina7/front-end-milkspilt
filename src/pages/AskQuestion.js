@@ -37,61 +37,60 @@ const AskQuestion = () => {
 
   return (
     <main className="info-body">
-      <h1>Ask a public Question</h1>
-      <section className="container">
-        <div className="question-area">
-          <form onSubmit={handleSubmit}>
-            <label className="label-style">Title</label>
-            <p>Summarize the problem</p>
-            <textarea
-              name="title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              className="title-input"
-            />
-            <label className="label-style">Body</label>
-            <p>Describe what you've tried</p>
-            <textarea
-              name="body"
-              value={body}
-              onChange={(e) => setBody(e.target.value)}
-              className="body-input"
-            />
-            <label className="label-style">Tags</label>
-            <p className="tips-pragraph">
-              Select "Age" and "Category" tags to describe what your question is
-              about
-            </p>
-            <div className="tags-area">
-              <div className="tag-style">Age</div>
-              <select
-                name="age"
-                value={age}
-                onChange={(e) => setAge(e.target.value)}
-              >
-                <option value="0">Baby</option>
-                <option value="1">Toddler</option>
-                <option value="2">T3-T5</option>
-                <option value="3">T6-T8</option>
-                <option value="4">T9-T12</option>
-              </select>
-              <div className="tag-style">Category</div>
-              <select
-                name="category"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-              >
-                <option value="Sleep">Sleep</option>
-                <option value="Feeding">Feeding</option>
-                <option value="Behavior">Behavior</option>
-                <option value="Emotion">Emotion</option>
-                <option value="Health">Health</option>
-              </select>
-            </div>
-            <input type="submit" value="Submit" className="form-submit" />
-          </form>
-        </div>
-        <div className="question-area">
+      {/* <section className="container"> */}
+      <div className="container">
+        <form onSubmit={handleSubmit} className="question-area">
+          <h1 className="aq-title">Ask a public Question</h1>
+          <label className="label-style">Title</label>
+          <p>Summarize the problem</p>
+          <textarea
+            name="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="title-input"
+          />
+          <label className="label-style">Body</label>
+          <p>Describe what you've tried</p>
+          <textarea
+            name="body"
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+            className="body-input"
+          />
+          <label className="label-style">Tags</label>
+          <p className="tips-pragraph">
+            Select "Age" and "Category" tags to describe what your question is
+            about
+          </p>
+          <div className="tags-area">
+            <div className="tag-style">Age</div>
+            <select
+              name="age"
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
+            >
+              <option value="0">Baby</option>
+              <option value="1">Toddler</option>
+              <option value="2">T3-T5</option>
+              <option value="3">T6-T8</option>
+              <option value="4">T9-T12</option>
+            </select>
+            <div className="tag-style">Category</div>
+            <select
+              name="category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <option value="Sleep">Sleep</option>
+              <option value="Feeding">Feeding</option>
+              <option value="Behavior">Behavior</option>
+              <option value="Emotion">Emotion</option>
+              <option value="Health">Health</option>
+            </select>
+          </div>
+          <input type="submit" value="Submit" className="form-submit" />
+        </form>
+        <div className="tips-area">
           <h2>Tips on getting good answers quickly</h2>
           <h4>
             The community is here to help you with specific parenting questions,
@@ -103,7 +102,7 @@ const AskQuestion = () => {
             <li>Double-check grammar and spelling</li>
           </ul>
         </div>
-      </section>
+      </div>
     </main>
   );
 };
