@@ -1,0 +1,31 @@
+.header-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #848d95;
+}
+
+.header-style {
+  margin: 50px 0;
+  font-size: 40px;
+}
+
+.dashboard-area {
+  width: 50%;
+  margin: auto;
+}
+
+.select-style {
+  color: #848d95;
+  border-color: #848d95;
+  border-radius: 3px;
+}

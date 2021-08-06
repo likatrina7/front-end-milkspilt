@@ -1,9 +1,11 @@
 body {
   margin: 0;
   padding-top: 95px;
-  padding-bottom: 85px;
+  font-family: Roboto, sans-serif;
 }
 
-h3 {
-  margin: 15px 100px;
+img {
+  height: 50px;
+  margin: 15px;
+  border-radius: 33px;
 }

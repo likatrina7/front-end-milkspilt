@@ -36,7 +36,7 @@ const AskQuestion = () => {
   };
 
   return (
-    <main>
+    <main className="info-body">
       <h1>Ask a public Question</h1>
       <section className="container">
         <div className="question-area">
@@ -81,11 +81,11 @@ const AskQuestion = () => {
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
               >
-                <option value="sleep">Sleep</option>
-                <option value="feeding">Feeding</option>
-                <option value="behavior">Behavior</option>
-                <option value="emotion">Emotion</option>
-                <option value="health">Health</option>
+                <option value="Sleep">Sleep</option>
+                <option value="Feeding">Feeding</option>
+                <option value="Behavior">Behavior</option>
+                <option value="Emotion">Emotion</option>
+                <option value="Health">Health</option>
               </select>
             </div>
             <input type="submit" value="Submit" className="form-submit" />

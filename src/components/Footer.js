@@ -18,12 +18,16 @@ const Footer = () => {
       <div className="footer-style">Copyright © 2021 Milk Spilt</div>
       <div className="footer-style">
         <Link to={redirectPath}>
-          <img src={logo} alt="Milk Spilt Logo" />
+          <img src={logo} alt="Milk Spilt Logo" className="logo" />
         </Link>
       </div>
       <div className="footer-style">
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact Us</Link>
+        <Link to="/about" className="link">
+          About
+        </Link>
+        <Link to="/contact" className="link">
+          Contact Us
+        </Link>
       </div>
     </footer>
   );
