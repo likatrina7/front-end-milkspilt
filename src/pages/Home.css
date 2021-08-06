@@ -39,7 +39,7 @@ video::-webkit-media-controls {
   align-items: center;
 }
 
-h1 {
+.daily-question-title {
   margin: 30px 100px;
   font-size: 40px;
 }

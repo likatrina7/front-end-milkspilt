@@ -23,7 +23,7 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <h1>Top Daily Parenting Questions</h1>
+        <h1 className="daily-question-title">Top Daily Parenting Questions</h1>
       </section>
       <video src={video} controls autoPlay loop></video>
       <section className="ending-area">

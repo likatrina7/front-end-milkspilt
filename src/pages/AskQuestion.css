@@ -1,24 +1,37 @@
 .container {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 }
 
 .question-area {
-  margin: 20px 150px;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.tips-area {
+  width: 30%;
+  margin-top: 5%;
+}
+
+.aq-title {
+  font-size: 40px;
+  margin: 40px 0;
 }
 
 .title-input {
   display: block;
   margin-bottom: 20px;
-  height: 45px;
-  width: 600px;
+  height: 50px;
+  width: 100%;
 }
 
 .body-input {
   display: block;
   margin-bottom: 20px;
-  height: 130px;
-  width: 600px;
+  height: 200px;
+  width: 100%;
 }
 
 .label-style {
@@ -37,10 +50,11 @@ select {
 
 .form-submit {
   width: 100px;
-  display: block;
-  position: absolute;
-  right: 61%;
-  margin-top: 15px;
+  margin-top: 40px;
+}
+
+.form-submit:last-child {
+  margin-left: auto;
 }
 
 .tags-area {
