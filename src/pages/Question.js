@@ -21,12 +21,8 @@ const Question = () => {
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_BACKEND_URL}/questions/${id}`)
         .then((response) => {
-            // console.log("Response:", response.data);
             setQuestion(response.data)
-            // const newAnswerId = [...answerId]
-            for (answerid of response.data.answer) {
-                getAnswer(answerid)
-            }
+            getAnswer(response.data.answer)
         })
         .catch((error) => {
             console.log("Error:", error);
@@ -34,16 +30,15 @@ const Question = () => {
         });
     }, []);
     
-    const getAnswer = (id => {
-        const newAnswer = [...answer]
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/answers/${id}`)
+    const getAnswer = (params => {
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/answers`, { params })
         .then((response) => {
-            // const newAnswer = [...answer]
-            setAnswer(answer => [...answer, response.data])
+            const newAnswer = response.data
+            setAnswer(newAnswer)
         })
         .catch((error) => {
             console.log("Error:", error);
-    });
+        });
     })
 
     const handleSubmit = (e) => {
