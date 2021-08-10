@@ -6,12 +6,14 @@ import { UserContext } from "../UserContext";
 import { useHistory } from "react-router-dom";
 import './Question.css'
 import moment from 'moment';
-
+import heart from "../media/heart.gif";
+import little_heart from "../media/little_heart.gif";
 
 
 const Question = () => {
     const { id } = useParams();
-    const [question, setQuestion] = useState("");
+    const [question, setQuestion] = useState({});
+    const [vote, setVote] = useState("");
     const [answer, setAnswer] = useState([]);
     const [response, setResponse] = useState("");
     const user = useContext(UserContext);
@@ -21,28 +23,29 @@ const Question = () => {
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_BACKEND_URL}/questions/${id}`)
         .then((response) => {
-            // console.log("Response:", response.data);
             setQuestion(response.data)
-            // const newAnswerId = [...answerId]
-            for (answerid of response.data.answer) {
-                getAnswer(answerid)
-            }
+            setVote(response.data.vote.length)
+            getAnswer(response.data.answer)
+        })
+        .catch((error) => {
+            console.log("Error:", error);
+            alert("Question not exist.")
+        });
+    }, []);
+    
+    const getAnswer = (a => {
+        console.log("params", a)
+        const queryParams = `params=${a}`
+        
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/answers?${queryParams}`)
+        // axios.get(`${process.env.REACT_APP_BACKEND_URL}/answers`, {params})
+        .then((response) => {
+            const newAnswer = response.data
+            setAnswer(newAnswer)
         })
         .catch((error) => {
             console.log("Error:", error);
         });
-    }, []);
-    
-    const getAnswer = (id => {
-        const newAnswer = [...answer]
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/answers/${id}`)
-        .then((response) => {
-            // const newAnswer = [...answer]
-            setAnswer(answer => [...answer, response.data])
-        })
-        .catch((error) => {
-            console.log("Error:", error);
-    });
     })
 
     const handleSubmit = (e) => {
@@ -50,21 +53,21 @@ const Question = () => {
         const userAnswer = {
           content: response,
           author_id: user.id,
-          question_id: id
+          username: user.name,
+          avatar: user.avatar
         };
         axios
           .post(`${process.env.REACT_APP_BACKEND_URL}/questions/${id}/answer`, userAnswer)
           .then((response) => {
             const answerRes = response.data.answer;
             setAnswer(answer => [...answer, response.data.answer])
-            console.log(answerRes)
             if (answerRes) {
               history.push(`/questions/${answerRes.question_id}`);
             }
           })
           .catch((error) => {
             console.log("Error:", error);
-            alert("Couldn't submit the answer.");
+            alert("Couldn't submit the answer, please leave something here.");
           });
       };
     const getRelativeTime = (time => {
@@ -75,9 +78,9 @@ const Question = () => {
     })
 
     const askTime = getRelativeTime(question.date_asked)
-    console.log(askTime)
 
     return (
+
         <main>
             <div className="qacontainer">
                 <section className="question">
@@ -87,10 +90,22 @@ const Question = () => {
                         <div className='tagStyle'>{question.category}</div>
                     </div>
                     <div className="views">
-                        <div className="view">Viewed {question.views} times</div>
-                        <div className="time">Posted {askTime}</div>
+                        <div className="timedata">                        
+                            <div className="view">Viewed {question.views} times</div>
+                            <div className="time">Posted {askTime}</div>
+                        </div>
+                        <div className="likebtn"> 
+                            <img src={heart} className="heart" alt="likebtn"></img>
+                            <span className="votecnt">{vote}</span>
+                        </div>
                     </div>
-                    <p>{question.content}</p>
+                    <div className="questioninfo">
+                        <img src={question.avatar} className="currentuser" alt="user"></img>
+                        <div className="dialog1">
+                            <p className="questionbody">{question.content}</p>
+                        </div>
+                        
+                    </div>
                     { answer ? 
                         <section className="answer">
                             <AnswerList answers={answer}/>
@@ -121,7 +136,7 @@ const Question = () => {
                         </div>
                     </form>
                 </section>
-            </div>
+        </div>
         </main>
     )
 };
