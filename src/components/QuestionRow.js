@@ -51,7 +51,7 @@ const QuestionRow = (props) => {
             <span className="tag">{props.category}</span>
           </div>
           <span className="date-style">
-            Posted {askTime} by {props.user}
+            Posted {askTime} by {props.username}
           </span>
         </div>
       </div>

@@ -15,7 +15,7 @@ import { UserProvider } from "./UserContext";
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   return (
-    <div className={isDarkMode && "dark"}>
+    <div className={`header-space ${isDarkMode && "dark"}`}>
       <UserProvider>
         <BrowserRouter>
           <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />

@@ -101,7 +101,7 @@ const Dashboard = () => {
               viewCount={q.views}
               answerCount={q.answer}
               voteCount={q.vote}
-              user={q.author_id}
+              username={q.username}
             />
           );
         })}
