@@ -6,8 +6,9 @@ import Login from "./Login";
 import Logout from "./Logout";
 import { UserContext } from "../UserContext";
 import { Search } from "@material-ui/icons";
+import DarkModeToggle from "react-dark-mode-toggle";
 
-const Header = () => {
+const Header = ({ isDarkMode, setIsDarkMode }) => {
   const user = useContext(UserContext);
 
   let redirectPath = "";
@@ -37,7 +38,15 @@ const Header = () => {
           <Search />
         </button>
       </div>
-      <div className="login-area">{user.id ? <Logout /> : <Login />}</div>
+      <div className="login-area">
+        <DarkModeToggle
+          onChange={setIsDarkMode}
+          checked={isDarkMode}
+          size={50}
+          className="darkmode"
+        />
+        {user.id ? <Logout /> : <Login />}
+      </div>
     </header>
   );
 };

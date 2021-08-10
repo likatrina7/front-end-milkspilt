@@ -17,11 +17,15 @@
 .header-style {
   margin: 50px 0;
   font-size: 40px;
+  color: #65686b;
 }
 
 .dashboard-area {
   width: 50%;
   margin: auto;
+  background-color: white;
+  padding: 0 20px 70px 20px;
+  min-height: 75vh;
 }
 
 .select-style {
@@ -51,4 +55,9 @@
 
 .button-style:hover {
   background-color: #4095c6;
+}
+
+.qr-box {
+  border: 1px solid #f1f0f0;
+  border-radius: 3px;
 }

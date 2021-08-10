@@ -26,6 +26,11 @@
   margin-bottom: 20px;
   height: 50px;
   width: 100%;
+  box-shadow: rgb(0 0 0 / 5%) 0px 1px 2px 0px, rgb(0 0 0 / 5%) 0px 1px 4px 0px,
+    rgb(0 0 0 / 5%) 0px 2px 8px 0px;
+  border: 1px solid #aba9a9;
+  border-radius: 3px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .body-input {
@@ -33,6 +38,15 @@
   margin-bottom: 20px;
   height: 200px;
   width: 100%;
+  box-shadow: rgb(0 0 0 / 5%) 0px 1px 2px 0px, rgb(0 0 0 / 5%) 0px 1px 4px 0px,
+    rgb(0 0 0 / 5%) 0px 2px 8px 0px;
+  border: 1px solid #aba9a9;
+  border-radius: 3px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.p-space {
+  margin-bottom: 10px;
 }
 
 .label-style {
@@ -47,11 +61,16 @@ p {
 select {
   margin-right: 90px;
   width: 125px;
+  box-shadow: rgb(0 0 0 / 5%) 0px 1px 2px 0px, rgb(0 0 0 / 5%) 0px 1px 4px 0px,
+    rgb(0 0 0 / 5%) 0px 2px 8px 0px;
+  border: 1px solid #aba9a9;
+  border-radius: 3px;
+  padding: 5px;
 }
 
 .form-submit {
   width: 100px;
-  margin-top: 40px;
+  margin-top: 40px 0;
   display: inline-block;
   padding: 0.5em 0.5em;
   border-radius: 5px;
@@ -81,7 +100,7 @@ select {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 15px;
+  margin: 20px 20px 60px 0px;
 }
 
 .tag-style {
@@ -97,6 +116,12 @@ li {
   line-height: 25px;
 }
 
-.info-body {
-  height: 80vh;
+.tips-box {
+  border: 1px solid #aba9a9;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: white;
+  padding: 25px 50px 80px 55px;
+  box-shadow: rgb(0 0 0 / 5%) 0px 1px 2px 0px, rgb(0 0 0 / 5%) 0px 1px 4px 0px,
+    rgb(0 0 0 / 5%) 0px 2px 8px 0px;
 }

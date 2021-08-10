@@ -3,7 +3,7 @@ h3 {
 }
 
 .info-body {
-  height: 80vh;
+  min-height: 80vh;
 }
 
 h1 {
