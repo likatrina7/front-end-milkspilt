@@ -20,6 +20,8 @@ const AskQuestion = () => {
       age_tag: age,
       cat_tag: category,
       author_id: user.id,
+      username: user.name,
+      avatar: user.avatar
     };
     axios
       .post(`${process.env.REACT_APP_BACKEND_URL}/questions`, question)

@@ -1,13 +1,60 @@
+.currentuser {
+    width: 6%;
+    height: 6%;
+}
+
 .questiontitle {
-    margin: 30px 50px 5px 50px;
+    margin: 30px 30px 5px 30px;
     font-size: 30px;
+    text-align: center;
+    font-family: Bradley Hand;
+    color:rgb(20, 157, 220);
+    font-weight: bold;
 }
 
 .qacontainer {
     display: grid;
     grid-template-rows: 2fr 1fr;
     grid-template-columns: 1fr 2fr 1fr;
+    column-gap: 50px;
     justify-items: center;
+}
+
+.questionbody {
+    box-shadow: 0 4px 8px 0 rgba(105, 114, 117, 0.623);
+    justify-content: center;
+    transition: 0.3s;
+    height: max-content;
+    width: 35vw;
+    vertical-align: middle;
+    background: rgba(169, 214, 236, 0.356);
+    padding: 20px 20px 20px 20px;
+    font-family: Rockwell;
+    line-height: 40px;
+    position: relative;
+	border-radius: .4em;
+}
+
+.questionbody:after {
+    content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 16px solid transparent;
+	border-right-color: rgba(169, 214, 236, 0.356);
+	border-left: 0;
+	border-bottom: 0;
+	margin-top: -7px;
+	margin-left: -14px;
+}
+
+
+.questioninfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .question {
@@ -18,23 +65,38 @@
 }
 
 .views {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
     justify-content: space-between;
+    align-items: center;
     margin: 0px 20px 20px 0px;
     border-bottom: grey 1px solid;
 } 
 
-.time {
-    margin-bottom: 10px;
+.likebtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: Rockwell;
+}
+
+.timedata {
+    display: flex;
+    height: 30px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 1;
+    font-family: Rockwell;
 }
 
 .qtag {
     list-style: none;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    margin: 20px;
+    justify-content: center;
+    margin-top: 20px;
     overflow: hidden; 
     padding: 0;
   }
@@ -98,6 +160,10 @@
     grid-row-end: 3;
 }
 
+.heart {
+    height: 40%;
+    width: 20%;
+}
 
 
 .label-style{

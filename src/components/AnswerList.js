@@ -11,7 +11,8 @@ const AnswerList = (props) => {
                     id={answer.answer_id}
                     content={answer.content}
                     date_answered={answer.date_answered}
-                >
+                    username={answer.username}
+                    avatar={answer.avatar}>
                 </Answer>
             </li>  
         ); 
