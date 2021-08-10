@@ -1,12 +1,18 @@
 body {
   margin: 0;
-  padding-top: 95px;
-  padding-bottom: 185px;
+  /* padding-top: 95px;
+  padding-bottom: 185px; */
   font-family: Roboto, sans-serif;
+  background-color: rgb(228, 226, 226);
 }
 
 img {
   height: 50px;
   margin: 15px;
   border-radius: 33px;
+}
+
+.dark {
+  background-color: grey;
+  color: #fff;
 }

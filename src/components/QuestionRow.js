@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./QuestionRow.css";
+import moment from "moment";
 
 const QuestionRow = (props) => {
   let ageText = "";
@@ -15,6 +16,16 @@ const QuestionRow = (props) => {
   } else if (props.age === "4") {
     ageText = "T9-T12";
   }
+
+  const getRelativeTime = (time) => {
+    const newTime = moment(time);
+    const absolute = newTime.format("MMMM Do YYYY, h:mm:ss a");
+    const relative = newTime.fromNow();
+    return relative;
+  };
+
+  const askTime = getRelativeTime(props.date);
+  console.log(askTime);
 
   return (
     <div className="row-area">
@@ -39,7 +50,9 @@ const QuestionRow = (props) => {
             <span className="tag">{ageText}</span>
             <span className="tag">{props.category}</span>
           </div>
-          <span className="date-style">{props.date}</span>
+          <span className="date-style">
+            Posted {askTime} by {props.user}
+          </span>
         </div>
       </div>
     </div>

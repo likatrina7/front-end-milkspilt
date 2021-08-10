@@ -42,7 +42,11 @@ const Dashboard = () => {
       `${process.env.REACT_APP_BACKEND_URL}/questions?${queryParams.join("&")}`
     );
     if (res && res.data && res.data.length > 0) {
-      setQuestions(res.data);
+      const questions = res.data;
+      const resSortedByViews = questions.sort((a, b) =>
+        a.views < b.views ? 1 : -1
+      );
+      setQuestions(resSortedByViews);
     }
   };
 
@@ -84,21 +88,24 @@ const Dashboard = () => {
           <option value="health">Health</option>
         </select>
       </form>
-      {questions.map((q, i) => {
-        return (
-          <QuestionRow
-            title={q.title}
-            age={q.age}
-            category={q.category}
-            date={q.date_asked}
-            id={q.question_id}
-            key={i}
-            viewCount={q.views}
-            answerCount={q.answer}
-            voteCount={q.vote}
-          />
-        );
-      })}
+      <div className="qr-box">
+        {questions.map((q, i) => {
+          return (
+            <QuestionRow
+              title={q.title}
+              age={q.age}
+              category={q.category}
+              date={q.date_asked}
+              id={q.question_id}
+              key={i}
+              viewCount={q.views}
+              answerCount={q.answer}
+              voteCount={q.vote}
+              user={q.author_id}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

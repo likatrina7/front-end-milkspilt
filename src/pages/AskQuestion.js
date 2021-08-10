@@ -39,7 +39,6 @@ const AskQuestion = () => {
 
   return (
     <main className="info-body">
-      {/* <section className="container"> */}
       <div className="container">
         <form onSubmit={handleSubmit} className="question-area">
           <h1 className="aq-title">Ask a public Question</h1>
@@ -50,6 +49,7 @@ const AskQuestion = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className="title-input"
+            placeholder="Required*"
           />
           <label className="label-style">Body</label>
           <p>Describe what you've tried</p>
@@ -58,6 +58,7 @@ const AskQuestion = () => {
             value={body}
             onChange={(e) => setBody(e.target.value)}
             className="body-input"
+            placeholder="Required*"
           />
           <label className="label-style">Tags</label>
           <p className="tips-pragraph">
@@ -89,20 +90,23 @@ const AskQuestion = () => {
               <option value="Emotion">Emotion</option>
               <option value="Health">Health</option>
             </select>
+            <input type="submit" value="Submit" className="form-submit" />
           </div>
-          <input type="submit" value="Submit" className="form-submit" />
         </form>
         <div className="tips-area">
-          <h2>Tips on getting good answers quickly</h2>
-          <h4>
-            The community is here to help you with specific parenting questions,
-            such as emotions & behaviors, feeding & nutrition or child safety.
-          </h4>
-          <ul>
-            <li>Make sure your question has not been asked already</li>
-            <li>Keep your question short and to the point</li>
-            <li>Double-check grammar and spelling</li>
-          </ul>
+          <div className="tips-box">
+            <h2>Tips on getting good answers quickly</h2>
+            <h4>
+              The community is here to help you with specific parenting
+              questions, such as emotions & behaviors, feeding & nutrition or
+              child safety.
+            </h4>
+            <ul>
+              <li>Make sure your question has not been asked already</li>
+              <li>Keep your question short and to the point</li>
+              <li>Double-check grammar and spelling</li>
+            </ul>
+          </div>
         </div>
       </div>
     </main>
