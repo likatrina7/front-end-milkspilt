@@ -9,7 +9,10 @@ const Answer = (props) => {
     return (
         <div className='answer_content'>
             <span className="answer_body">{props.content}</span>
-            <img src={props.avatar} className="answeruser" alt="answeruser"></img>
+            <div className="answeruser">
+                <img src={props.avatar} alt="answeruser"></img>
+                <span className="answerusername">{props.username}</span>
+            </div>
         </div>
     )
   }

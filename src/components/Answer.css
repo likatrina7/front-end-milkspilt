@@ -6,6 +6,7 @@
 }
 
 .answer_body {
+    color:slategray;
     display: flex;
     justify-content: flex-start;
     position: relative;
@@ -15,30 +16,33 @@
     justify-content: flex-start;
     transition: 0.3s;
     height: max-content;
-    width: 25vw;
+    width: 33vw;
     vertical-align: middle;
-    background: rgba(245, 246, 152, 0.356);
+    background: #ced1d3;
     padding: 20px 20px 20px 20px;
     font-family: Rockwell;
     margin-left: 150px;
+    line-height: 40px;
 }
 
 .answer_body:after {
-    content: '';
+	content: '';
 	position: absolute;
 	right: 0;
 	top: 50%;
 	width: 0;
 	height: 0;
-	border: 14px solid transparent;
-	border-left-color: rgba(240, 234, 172, 0.623);
+	border: 16px solid transparent;
+	border-left-color: #ced1d3;
 	border-right: 0;
-	border-bottom: 0;
-	margin-top: -7px;
-	margin-right: -14px;
+	margin-top: -16px;
+	margin-right: -16px;
 }
 
 .answeruser {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 5%;
     height: 5%;
 }
