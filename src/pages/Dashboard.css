@@ -10,7 +10,6 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 20px;
   color: #848d95;
 }
 
@@ -60,4 +59,36 @@
 .qr-box {
   border: 1px solid #f1f0f0;
   border-radius: 3px;
+}
+
+.filter-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.filter-btn-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 0.5px solid #848d95;
+  border-radius: 4px;
+}
+
+.filter-btn {
+  padding: 6px 6px;
+  border-width: 0.5px;
+  border-color: #848d95;
+  background-color: white;
+}
+
+.filter-btn:hover {
+  background-color: rgb(251, 248, 248);
+}
+
+.selected-btn {
+  background-color: teal;
+  color: whitesmoke;
 }

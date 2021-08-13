@@ -1,0 +1,12 @@
+.result-detial {
+  color: #848d95;
+  font-size: 18px;
+}
+
+.result-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}

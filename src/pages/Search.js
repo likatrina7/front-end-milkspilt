@@ -1,56 +1,41 @@
 import "./Dashboard.css";
-import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import "./Search.css";
+import React, { useState, useEffect, useContext } from "react";
+import { useHistory, useParams } from "react-router-dom";
 import QuestionRow from "../components/QuestionRow";
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import axios from "axios";
+import { UserContext } from "../UserContext";
 
 const Dashboard = () => {
   const history = useHistory();
+  const { keyword } = useParams();
   const [questions, setQuestions] = useState([]);
-  const [age, setAge] = useState("all");
-  const [category, setCategory] = useState("all");
-  const [filter, setFilter] = React.useState("");
+  const [filter, setFilter] = useState("");
+  const user = useContext(UserContext);
 
   const handleFilterChange = (event, newFilter) => {
     setFilter(newFilter);
   };
 
-  // useEffect(async () => {
-  //   handleFormSubmit();
-  // }, []);
-
   useEffect(async () => {
-    handleFormSubmit();
-  }, [age, category]);
-  const handleClickAskQ = () => {
-    history.push("/questions");
-  };
-
-  const handleAgeChange = (e) => {
-    setAge(e.target.value);
-  };
-
-  const handleCategoryChange = (e) => {
-    setCategory(e.target.value);
-  };
-
-  const handleFormSubmit = async () => {
-    const queryParams = [];
-    if (age !== "all") {
-      queryParams.push(`age=${age}`);
-    }
-    if (category !== "all") {
-      queryParams.push(`category=${category}`);
-    }
-    const res = await axios.get(
-      `${process.env.REACT_APP_BACKEND_URL}/questions?${queryParams.join("&")}`
+    const res = await axios.post(
+      `${process.env.REACT_APP_BACKEND_URL}/search`,
+      {
+        search_str: keyword,
+      }
     );
     if (res && res.data && res.data.length >= 0) {
-      // const qs = res.data;
-      // const resSortedByViews = qs.sort((a, b) => (a.views < b.views ? 1 : -1));
       setQuestions(res.data);
+    }
+  }, [keyword]);
+
+  const handleClickAskQ = () => {
+    if (user.id) {
+      history.push("/questions");
+    } else {
+      alert("Please log in to ask a question.");
     }
   };
 
@@ -85,42 +70,15 @@ const Dashboard = () => {
   return (
     <div className="dashboard-area">
       <div className="header-area">
-        <h1 className="header-style">Top Questions</h1>
+        <h1 className="header-style">Search Results</h1>
         <button className="button-style" onClick={handleClickAskQ}>
           Ask Question
         </button>
       </div>
-      <div className="filter-box">
-        <form className="filter-area">
-          <div className="tag-style">Age</div>
-          <select
-            name="age"
-            value={age}
-            onChange={handleAgeChange}
-            className="select-style"
-          >
-            <option value="all">All</option>
-            <option value="0">Baby</option>
-            <option value="1">Toddler</option>
-            <option value="2">T3-T5</option>
-            <option value="3">T6-T8</option>
-            <option value="4">T9-T12</option>
-          </select>
-          <div className="tag-style">Category</div>
-          <select
-            name="category"
-            value={category}
-            onChange={handleCategoryChange}
-            className="select-style"
-          >
-            <option value="all">All</option>
-            <option value="sleep">Sleep</option>
-            <option value="feeding">Feeding</option>
-            <option value="behavior">Behavior</option>
-            <option value="emotion">Emotion</option>
-            <option value="health">Health</option>
-          </select>
-        </form>
+      <div className="result-box">
+        <div className="result-detial">
+          {questions.length} Results for {keyword}
+        </div>
         <div className="filter-btn-box">
           <ToggleButtonGroup
             value={filter}
@@ -141,18 +99,6 @@ const Dashboard = () => {
               Date
             </ToggleButton>
           </ToggleButtonGroup>
-          {/* <button onClick={handleClickVotes} className="filter-btn">
-            Votes
-          </button>
-          <button onClick={handleClickAnswers} className="filter-btn">
-            Answers
-          </button>
-          <button onClick={handleClickViews} className="filter-btn">
-            Views
-          </button>
-          <button onClick={handleClickDate} className="filter-btn">
-            Date
-          </button> */}
         </div>
       </div>
       <div className="qr-box">

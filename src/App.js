@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound.js";
 import AskQuestion from "./pages/AskQuestion.js";
 import Question from "./pages/Question.js";
 import Dashboard from "./pages/Dashboard.js";
+import Search from "./pages/Search.js";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { UserProvider } from "./UserContext";
 
@@ -26,6 +27,7 @@ function App() {
             <Route exact path="/questions" component={AskQuestion} />
             <Route exact path="/questions/:id" component={Question} />
             <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/search/:keyword" component={Search} />
             <Route component={NotFound} />
           </Switch>
           <Footer />
