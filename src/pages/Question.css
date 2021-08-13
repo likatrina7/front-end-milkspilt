@@ -1,18 +1,21 @@
-.currentuser {
-    width: 6%;
-    height: 6%;
+.questionuser {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 40px;
 }
 
 .questiontitle {
     margin: 30px 30px 5px 30px;
     font-size: 30px;
     text-align: center;
-    font-family: Bradley Hand;
-    color:rgb(20, 157, 220);
+    font-family: Apple Chancery;
+    color:rgb(129, 205, 240);
     font-weight: bold;
 }
 
 .qacontainer {
+    height: 100%;
     display: grid;
     grid-template-rows: 2fr 1fr;
     grid-template-columns: 1fr 2fr 1fr;
@@ -36,20 +39,22 @@
 }
 
 .questionbody:after {
-    content: '';
+	content: '';
 	position: absolute;
 	left: 0;
-	top: 50%;
+	top: 30%;
 	width: 0;
 	height: 0;
 	border: 16px solid transparent;
-	border-right-color: rgba(169, 214, 236, 0.356);
+	border-right-color:  rgba(169, 214, 236, 0.356);
 	border-left: 0;
-	border-bottom: 0;
-	margin-top: -7px;
-	margin-left: -14px;
+	margin-top: -16px;
+	margin-left: -16px;
 }
 
+.innertitle {
+    margin: 0px;
+}
 
 .questioninfo {
     display: flex;
@@ -64,34 +69,78 @@
     grid-row-end: 2;
 }
 
-.views {
+.replyarea {
     display: grid;
-    grid-template-columns: 4fr 1fr;
-    justify-content: space-between;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: flex-end;
     align-items: center;
-    margin: 0px 20px 20px 0px;
-    border-bottom: grey 1px solid;
-} 
+}
+
 
 .likebtn {
+    grid-column-start: 3;
+    grid-column-end: 4;
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
     font-family: Rockwell;
+    /* position: relative; */
+}
+
+.replybtn {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    justify-self: center;
+}
+
+.rbtn {
+    color: #fff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #4eb5f1;
+	padding: 6px 8px 1px 8px;
+	border-radius: 10px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+}
+
+.rbtn:hover {
+	text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+	transition: all 0.4s ease 0s;
+}
+
+/* .likebtn {
+    display: grid;
+    grid-template-columns: re;
+} */
+
+/* .votecnt {
+    position: absolute;
+    bottom: 10px;
+    right: 210px;
+} */
+
+img.heart {
+    margin: 0px 0px 35px 0px;
+    mix-blend-mode: multiply;
 }
 
 .timedata {
     display: flex;
-    height: 30px;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
-    flex-grow: 1;
-    font-family: Rockwell;
+    font-family: Consolas;
+    color:rgba(58, 56, 56, 0.808);
+}
+
+.time {
+    margin-right: 40px ;
 }
 
 .qtag {
+    /* width: 20vw; */
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -99,26 +148,25 @@
     margin-top: 20px;
     overflow: hidden; 
     padding: 0;
-  }
-  
+}
+
 
 .tagStyle {
-    background: #eee;
-    border-radius: 3px 0 0 3px;
-    color: rgb(130, 203, 245);
+    background: rgba(173, 168, 168, 0.383);
+    border-radius: 13px 0 13px 3px;
     display: inline-block;
     height: 26px;
     line-height: 26px;
     padding: 0 20px 0 23px;
     position: relative;
-    margin: 0 10px 10px 0;
+    margin: 0 30px 30px 0;
     text-decoration: none;
 }
 
 .tagStyle::before {
     background: #fff;
     border-radius: 10px;
-    box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 1px rgba(82, 79, 79, 0.25);
     content: '';
     height: 6px;
     left: 10px;
@@ -128,9 +176,9 @@
 } 
 
 .tagStyle::after {
-    background: #fff;
+    background: #808080;
     border-bottom: 13px solid transparent;
-    border-left: 10px solid #eee;
+    /* border-left: 10px solid rgba(173, 168, 168, 0.383); */
     border-top: 13px solid transparent;
     content: '';
     position: absolute;
@@ -150,66 +198,111 @@
 .response {
     display: flex;
     flex-direction: column;
-    align-self: center;
-    align-content: space-between;
-    justify-content: space-between;
-    border-top: grey 2px solid;
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
-}
-
-.heart {
-    height: 40%;
-    width: 20%;
-}
-
-
-.label-style{
     margin-top: 20px;
 }
+
+.label-style{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .hint {
     margin-top: 20px;
 }
 .answerForm {
     display:grid;
-    grid-template-rows: 1fr 1fr 3fr 1fr;
-    align-content: space-between;
-    justify-content: space-between;
+    grid-template-rows: 1fr 3fr 1fr;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    align-self: center;
 }
 
 .postbtn{
-    display: inline-block;
-    width: 80px;
-    height: 40px;
-    padding: 0.3em 1.2em;
-    margin: 0 0.3em 0.3em 0;
-    border-radius: 2em;
-    box-sizing: border-box;
-    text-decoration:none;
-    font-family:'Roboto',sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-    text-align: center;
-    color:#FFFFFF;
-    background-color:#4eb5f1;
-    text-align:center;
-    transition: all 0.2s;
+    color: #fff !important;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #4eb5f1;
+	padding: 10px 8px 3px 8px;
+	border-radius: 10px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+    font-size: 20px;
+    margin-top: 10px;
+    font-family: Rockwell;
+    text-transform: uppercase;
 }
     
-.postbtn:hover{
-    background-color: #4095c6;
+.postbtn:hover {
+	text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+	transition: all 0.4s ease 0s;
+}
+
+.postarea {
+    justify-self: end;
 }
 
 .response-input {
     resize: none;
-	width: 400px;
-	height: 120px;
+	width: 650px;
+	height: 180px;
 	border: 3px solid #cccccc;
 	padding: 5px;
 	font-family: Tahoma, sans-serif;
+    border-image: linear-gradient(#a6edf3 25%,#6beee7 50%,#00bbcb 75%) 1;
 }
 
 
 
+.box {
+    display: flex;
+    width: 40vw;
+    height: 8px;
+    margin: 5px 0px 60px 0px;
+}
+
+.box-sm {
+    height: 8px;
+    margin: 0;
+    flex-grow: 1;
+    transition: all .8s ease-in-out;
+    cursor: pointer;
+}
+
+
+.box-sm:hover {
+    flex-grow: 12;
+}
+
+
+.red {
+    background-color: RGB(2, 62, 138);
+}
+
+.orange {
+    background-color: RGB(0, 119, 182);
+}
+
+.yellow {
+    background-color: RGB(0, 150, 199);
+}
+
+.green {
+    background-color: RGB(0, 180, 216);
+}
+
+.blue {
+    background-color: RGB(72, 202, 228);
+}
+
+.purple {
+    background-color: RGB(144, 224, 239);
+}

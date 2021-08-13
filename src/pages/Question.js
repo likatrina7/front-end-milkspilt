@@ -6,7 +6,7 @@ import { UserContext } from "../UserContext";
 import { useHistory } from "react-router-dom";
 import './Question.css'
 import moment from 'moment';
-import heart from "../media/heart.gif";
+import heart from "../media/newheart.gif";
 import little_heart from "../media/little_heart.gif";
 
 
@@ -74,10 +74,11 @@ const Question = () => {
         const newTime = moment(time);
         const absolute = newTime.format('MMMM Do YYYY, h:mm:ss a');
         const relative = newTime.fromNow();
-        return relative
+        return absolute
     })
 
     const askTime = getRelativeTime(question.date_asked)
+
 
     return (
 
@@ -89,22 +90,28 @@ const Question = () => {
                         <div className='tagStyle'>{question.age}</div>
                         <div className='tagStyle'>{question.category}</div>
                     </div>
-                    <div className="views">
-                        <div className="timedata">                        
-                            <div className="view">Viewed {question.views} times</div>
-                            <div className="time">Posted {askTime}</div>
-                        </div>
-                        <div className="likebtn"> 
-                            <img src={heart} className="heart" alt="likebtn"></img>
-                            <span className="votecnt">{vote}</span>
-                        </div>
-                    </div>
                     <div className="questioninfo">
-                        <img src={question.avatar} className="currentuser" alt="user"></img>
-                        <div className="dialog1">
-                            <p className="questionbody">{question.content}</p>
+                        <div className="questionuser">
+                            <img src={question.avatar} alt="user"></img>
+                            <div>{question.username}</div>
                         </div>
-                        
+                        <div className="questionbody">
+                            <h3 className="innertitle">{question.title}</h3>
+                            <div className="timedata">
+                                <div className="time">{askTime}</div>                        
+                                <div className="view">{question.views} views</div>
+                            </div>
+                            <p className="content">{question.content}</p>
+                            <div className="replyarea">
+                                <div className="likebtn"> 
+                                    <img src={heart} className="heart" alt="likebtn"></img>
+                                    <span className="votecnt">{vote}  Likes</span>
+                                </div>
+                                <div className="replybtn"> 
+                                    <a href="#reply"><div className="rbtn">Reply</div></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     { answer ? 
                         <section className="answer">
@@ -114,24 +121,31 @@ const Question = () => {
                         null
                     }
                 </section>
-
-                <section className="response">
+        
+                <section className="response" id="reply">
+                    <div class="box">
+                        <div class="box-sm red"></div>
+                        <div class="box-sm orange"></div>
+                        <div class="box-sm yellow "></div>
+                        <div class="box-sm green "></div>
+                        <div class="box-sm blue "></div>
+                        <div class="box-sm purple"></div>
+                    </div>
                     <form className="answerForm" onSubmit={handleSubmit}>
-                        <div  className="label-style">
+                        <div className="label-style">
                             <label>Answer</label>
-                        </div>
-                        <div className="hint">
-                            <p>Share your wisdom here</p>
+                            <img src={user.avatar} className="currentuser" alt="currentuser"></img>
                         </div>
                         <div>
                             <textarea
+                                placeholder="Share your wisdom here"
                                 className="response-input"
                                 name="response"
                                 value={response}
                                 onChange={(e) => setResponse(e.target.value)}
                             />
                         </div>
-                        <div>
+                        <div className="postarea">
                             <button className="postbtn">Post</button>
                         </div>
                     </form>
