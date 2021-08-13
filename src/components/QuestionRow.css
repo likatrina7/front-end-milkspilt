@@ -1,7 +1,7 @@
 .row-area {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   padding-bottom: 20px;
   box-shadow: rgb(0 0 0 / 5%) 0px 1px 2px 0px, rgb(0 0 0 / 5%) 0px 1px 4px 0px,
@@ -60,4 +60,8 @@
 
 .stat-style {
   font-weight: bold;
+}
+
+.date-style {
+  margin-right: 10px;
 }

@@ -18,14 +18,16 @@ const QuestionRow = (props) => {
   }
 
   const getRelativeTime = (time) => {
+    console.log(Date.parse(time));
     const newTime = moment(time);
+    // console.log(newTime);
     const absolute = newTime.format("MMMM Do YYYY, h:mm:ss a");
     const relative = newTime.fromNow();
     return relative;
   };
 
   const askTime = getRelativeTime(props.date);
-  console.log(askTime);
+  // console.log(askTime);
 
   return (
     <div className="row-area">
