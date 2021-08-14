@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Home.css";
 import video from "../media/home-page-video.mp4";
 import icon from "../media/user-icon.jpg";
+import Login from "../components/Login.js";
+import Logout from "../components/Logout.js";
+import { UserContext } from "../UserContext";
 
 const Home = () => {
+  const user = useContext(UserContext);
   return (
     <main>
       <section className="daily-question-area">
         <div className="qa-area">
+          {user.id ? <Logout /> : <Login />}
           <div className="qa-style">
             <img src={icon} alt="User Icon" />
             <p>Q: How Do I Get My Infant to Sleep?</p>

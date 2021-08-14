@@ -1,6 +1,5 @@
 import "./App.css";
 import React, { useState } from "react";
-import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
 import About from "./pages/About.js";
 import ContactUs from "./pages/ContactUs.js";
@@ -12,14 +11,13 @@ import Dashboard from "./pages/Dashboard.js";
 import Search from "./pages/Search.js";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { UserProvider } from "./UserContext";
+import { DarkModeProvider } from "./DarkModeContext";
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
   return (
-    <div className={`header-space ${isDarkMode && "dark"}`}>
-      <UserProvider>
+    <UserProvider>
+      <DarkModeProvider>
         <BrowserRouter>
-          <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
@@ -32,8 +30,8 @@ function App() {
           </Switch>
           <Footer />
         </BrowserRouter>
-      </UserProvider>
-    </div>
+      </DarkModeProvider>
+    </UserProvider>
   );
 }
 

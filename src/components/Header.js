@@ -3,14 +3,17 @@ import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import logo from "../media/milk_spilt_logo.png";
 import { Link } from "react-router-dom";
+import Menu from "../components/Menu.js";
 import Login from "./Login";
 import Logout from "./Logout";
 import { UserContext } from "../UserContext";
 import { Search } from "@material-ui/icons";
 import DarkModeToggle from "react-dark-mode-toggle";
+import { DarkModeContext } from "../DarkModeContext";
 
-const Header = ({ isDarkMode, setIsDarkMode }) => {
+const Header = () => {
   const user = useContext(UserContext);
+  const { isDarkMode, setIsDarkMode } = useContext(DarkModeContext);
   const history = useHistory();
   const [searchInput, setSearchInput] = useState("");
 
@@ -25,6 +28,12 @@ const Header = ({ isDarkMode, setIsDarkMode }) => {
     history.push(`/search/${searchInput}`);
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      history.push(`/search/${searchInput}`);
+    }
+  };
+
   return (
     <header className="home-header">
       <div className="logo-area">
@@ -34,6 +43,7 @@ const Header = ({ isDarkMode, setIsDarkMode }) => {
         <Link to={redirectPath} className="co-name">
           Milk Spilt
         </Link>
+        <Menu />
       </div>
       <div className="search-area">
         <input
@@ -42,6 +52,7 @@ const Header = ({ isDarkMode, setIsDarkMode }) => {
           placeholder="What are you looking for?"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
         <button type="submit" class="searchButton" onClick={handleSearchClick}>
           <Search />

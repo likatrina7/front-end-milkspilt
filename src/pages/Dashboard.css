@@ -76,19 +76,3 @@
   border: 0.5px solid #848d95;
   border-radius: 4px;
 }
-
-.filter-btn {
-  padding: 6px 6px;
-  border-width: 0.5px;
-  border-color: #848d95;
-  background-color: white;
-}
-
-.filter-btn:hover {
-  background-color: rgb(251, 248, 248);
-}
-
-.selected-btn {
-  background-color: teal;
-  color: whitesmoke;
-}
