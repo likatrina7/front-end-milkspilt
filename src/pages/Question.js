@@ -79,6 +79,26 @@ const Question = () => {
 
     const askTime = getRelativeTime(question.date_asked)
 
+    const voteQuestion = () => {
+        const newVote = {
+            question_id: id,
+            author_id: user.id
+        }
+        axios
+        .post(`${process.env.REACT_APP_BACKEND_URL}/questions/${id}/vote`, newVote)
+        .then((response) => {
+            const voteRes = response.data.vote
+            setVote(vote+1)
+            if (voteRes) {
+                history.push(`/questions/${id}`);
+            }
+        })
+          .catch((error) => {
+            console.log("Error:", error);
+            alert("Couldn't submit the answer, please leave something here.");
+          });
+    }
+
 
     return (
 
@@ -104,7 +124,7 @@ const Question = () => {
                             <p className="content">{question.content}</p>
                             <div className="replyarea">
                                 <div className="likebtn"> 
-                                    <img src={heart} className="heart" alt="likebtn"></img>
+                                    <img src={heart} className="heart" alt="likebtn" onClick={voteQuestion}></img>
                                     <span className="votecnt">{vote}  Likes</span>
                                 </div>
                                 <div className="replybtn"> 
@@ -150,6 +170,8 @@ const Question = () => {
                         </div>
                     </form>
                 </section>
+                <div className="bg1"></div>
+                <div className="bg2"></div>
         </div>
         </main>
     )
