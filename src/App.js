@@ -4,7 +4,7 @@ import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
 import About from "./pages/About.js";
 import ContactUs from "./pages/ContactUs.js";
-import Home from "./pages/Home.js";
+import newHome from "./pages/newHome.js";
 import NotFound from "./pages/NotFound.js";
 import AskQuestion from "./pages/AskQuestion.js";
 import Question from "./pages/Question.js";
@@ -21,7 +21,7 @@ function App() {
         <BrowserRouter>
           <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={newHome} />
             <Route exact path="/about" component={About} />
             <Route exact path="/contact" component={ContactUs} />
             <Route exact path="/questions" component={AskQuestion} />

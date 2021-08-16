@@ -28,8 +28,8 @@ const Question = () => {
             getAnswer(response.data.answer)
         })
         .catch((error) => {
-            console.log("Error:", error);
-            alert("Question not exist.")
+            console.log("Error:", error.response.data.error);
+            alert(error.response.data.error)
         });
     }, []);
     
@@ -59,6 +59,7 @@ const Question = () => {
         axios
           .post(`${process.env.REACT_APP_BACKEND_URL}/questions/${id}/answer`, userAnswer)
           .then((response) => {
+            console.log("response is", response)
             const answerRes = response.data.answer;
             setAnswer(answer => [...answer, response.data.answer])
             if (answerRes) {
@@ -66,8 +67,9 @@ const Question = () => {
             }
           })
           .catch((error) => {
-            console.log("Error:", error);
-            alert("Couldn't submit the answer, please leave something here.");
+            console.log("Error is:", error.response.data.error);
+            // alert("Couldn't submit the answer, please leave something here.");
+            alert(error.response.data.error)
           });
       };
     const getRelativeTime = (time => {
@@ -95,7 +97,8 @@ const Question = () => {
         })
           .catch((error) => {
             console.log("Error:", error);
-            alert("Couldn't submit the answer, please leave something here.");
+            // alert("Couldn't submit the answer, please leave something here.");
+            alert(error)
           });
     }
 
@@ -105,7 +108,7 @@ const Question = () => {
         <main>
             <div className="qacontainer">
                 <section className="question">
-                    <h1 className="questiontitle">{question.title}</h1>
+                    <h1 className="questiontitle"><p className="qtitle">{question.title}</p></h1>
                     <div className="qtag">
                         <div className='tagStyle'>{question.age}</div>
                         <div className='tagStyle'>{question.category}</div>
@@ -172,7 +175,13 @@ const Question = () => {
                 </section>
                 <div className="bg1"></div>
                 <div className="bg2"></div>
-        </div>
+            </div>
+            <span className="star"></span>
+            <span className="star"></span>
+            <span className="star"></span>
+            <span className="star"></span>
+            <span className="star"></span>
+            <span className="star"></span>
         </main>
     )
 };

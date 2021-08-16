@@ -27,17 +27,18 @@
     margin: 30px 30px 5px 30px;
     font-size: 30px;
     text-align: center;
-    font-family: Apple Chancery;
-    color:rgb(129, 205, 240);
+    font-family: 'Fira Code', monospace;
+    color:#2e9ae2bb;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
+
 .qacontainer {
-    height: 100%;
+    height: minmax(100%, max-content);
     display: grid;
-    grid-template-rows: 2fr 1fr;
+    grid-template-rows: minmax(70%, max-content) minmax(30%, max-content);
     grid-template-columns: 1fr 2fr 1fr;
-    /* column-gap: 50px; */
     justify-items: center;
 }
 
@@ -134,17 +135,6 @@
 	text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
 	transition: all 0.4s ease 0s;
 }
-
-/* .likebtn {
-    display: grid;
-    grid-template-columns: re;
-} */
-
-/* .votecnt {
-    position: absolute;
-    bottom: 10px;
-    right: 210px;
-} */
 
 img.heart {
     margin: 0px 0px 35px 0px;
@@ -279,21 +269,20 @@ img.heart {
 
 .response-input {
     resize: none;
-	width: 650px;
-	height: 180px;
+    width: 38vw;
+	height: 20vh;
 	border: 3px solid #cccccc;
 	padding: 5px;
 	font-family: Tahoma, sans-serif;
     border-image: linear-gradient(#a6edf3 25%,#6beee7 50%,#00bbcb 75%) 1;
 }
 
-
-
 .box {
     display: flex;
-    width: 40vw;
+    width: 50vw;
     height: 8px;
     margin: 5px 0px 60px 0px;
+    align-self: center;
 }
 
 .box-sm {
@@ -308,7 +297,6 @@ img.heart {
 .box-sm:hover {
     flex-grow: 12;
 }
-
 
 .red {
     background-color: RGB(2, 62, 138);
@@ -332,4 +320,74 @@ img.heart {
 
 .purple {
     background-color: RGB(144, 224, 239);
+}
+
+
+.star {
+    position: relative;
+    width: 1px;
+    height: 1px;
+    background-color: white;
+    position: fixed;
+    animation-name: particleAnimation;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.star::before{
+    position: absolute;
+    display: block;
+    content: "";
+    width: 100px;
+    right: 1px;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(255,255,255,0.4) 100%); 
+}
+
+.star:nth-of-type(1) { top: 25%; animation-duration: 10s; }
+.star:nth-of-type(2) { top: 50%; animation-duration: 3s; }
+.star:nth-of-type(3) { top: 75%; animation-duration: 12s; }
+.star:nth-of-type(4) { top: 10%; animation-duration: 5s; }
+.star:nth-of-type(5) { top: 40%; animation-duration: 8s; }
+.star:nth-of-type(6) { top: 85%; animation-duration: 7s; }
+
+@keyframes particleAnimation {
+    from {
+        left: -50px;
+      }
+      to {
+          left: calc(100% + 100px);
+      }
+  }
+
+@media screen and (max-device-width: 1300px) {
+    .response-input {
+        resize: none;
+        width: 600px;
+        height: 180px;
+    }
+
+    .qacontainer {
+        height: 100%;
+        display: grid;
+        grid-template-rows: 70% 30%;
+        grid-template-columns: 15% 70% 15%;
+        /* column-gap: 50px; */
+        justify-items: center;
+    }
+
+    .questionbody {
+        width: 45vw;
+        margin-left: 20px;
+    }
+
+    .questionuser {
+        padding-right: 0px;
+        margin: 0px 10px 0px 20px;
+    }
+
+    .questioninfo {
+        justify-content: flex-start;
+    }
 }
