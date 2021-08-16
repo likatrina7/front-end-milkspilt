@@ -37,13 +37,13 @@ const Header = () => {
   return (
     <header className="home-header">
       <div className="logo-area">
+        <Menu />
         <Link to={redirectPath}>
           <img src={logo} alt="Milk Spilt Logo" className="logo" />
         </Link>
         <Link to={redirectPath} className="co-name">
           Milk Spilt
         </Link>
-        <Menu />
       </div>
       <div className="search-area">
         <input

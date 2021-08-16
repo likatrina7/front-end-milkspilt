@@ -4,10 +4,12 @@ import Header from "../components/Header.js";
 
 const NotFound = () => {
   return (
-    <div className="info-body">
+    <React.Fragment>
       <Header />
-      <h1>404 Not Found</h1>;
-    </div>
+      <div className="info-body">
+        <h1>404 Not Found</h1>;
+      </div>
+    </React.Fragment>
   );
 };
 

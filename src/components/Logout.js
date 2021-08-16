@@ -4,6 +4,7 @@ import axios from "axios";
 import { UserContext } from "../UserContext";
 import "./Logout.css";
 import { useHistory } from "react-router-dom";
+import Menu from "../components/Menu.js";
 
 const clientId =
   "1026535766157-ig1tqfrs60g2mp6jrb2d6htqoqt438l9.apps.googleusercontent.com";

@@ -15,6 +15,7 @@ import InfoIcon from "@material-ui/icons/Info";
 import ContactPhoneIcon from "@material-ui/icons/ContactPhone";
 import "./Menu.css";
 import { useHistory } from "react-router-dom";
+import MenuIcon from "@material-ui/icons/Menu";
 
 const useStyles = makeStyles({
   list: {
@@ -111,7 +112,7 @@ export default function Menu() {
   return (
     <div>
       <Button className="menu-btn" onClick={toggleDrawer(true)}>
-        Menu
+        <MenuIcon />
       </Button>
       <Drawer anchor="left" open={menuOpen} onClose={toggleDrawer(false)}>
         {list}

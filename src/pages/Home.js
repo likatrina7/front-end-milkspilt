@@ -5,6 +5,7 @@ import icon from "../media/user-icon.jpg";
 import Login from "../components/Login.js";
 import Logout from "../components/Logout.js";
 import { UserContext } from "../UserContext";
+import Menu from "../components/Menu.js";
 
 const Home = () => {
   const user = useContext(UserContext);
@@ -13,7 +14,8 @@ const Home = () => {
       <section className="daily-question-area">
         <div className="qa-area">
           {user.id ? <Logout /> : <Login />}
-          <div className="qa-style">
+          {user.id ? <Menu /> : ""}
+          {/* <div className="qa-style">
             <img src={icon} alt="User Icon" />
             <p>Q: How Do I Get My Infant to Sleep?</p>
           </div>
@@ -26,9 +28,9 @@ const Home = () => {
               night. To help them associate bed with sleep, put them in the crib
               when they are sleepy and not fully asleep..............
             </p>
-          </div>
+          </div> */}
         </div>
-        <h1 className="daily-question-title">Top Daily Parenting Questions</h1>
+        {/* <h1 className="daily-question-title">Top Daily Parenting Questions</h1>
       </section>
       <video src={video} controls autoPlay loop></video>
       <section className="ending-area">
@@ -39,7 +41,7 @@ const Home = () => {
         <p>
           Join the milk spilt community of parents and see parenting in a new
           way.
-        </p>
+        </p> */}
       </section>
     </main>
   );
