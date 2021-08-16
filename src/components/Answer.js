@@ -1,6 +1,6 @@
 import React from 'react';
 import './Answer.css'
-import icon from "../media/user-icon.jpg";
+import heart from "../media/newheart.gif";
 
 
 const Answer = (props) => {
