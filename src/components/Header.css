@@ -3,11 +3,12 @@
   flex-direction: row;
   justify-content: space-around;
   color: white;
-  background-color: rgb(85, 84, 84);
+  background-image: url(../media/milkyway.jpg);
   padding: 5px;
   position: fixed;
   width: 100%;
   top: 0;
+  z-index: 1;
 }
 
 .logo-area {

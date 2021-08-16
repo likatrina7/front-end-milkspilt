@@ -28,8 +28,8 @@ const Question = () => {
             getAnswer(response.data.answer)
         })
         .catch((error) => {
-            console.log("Error:", error);
-            alert("Question not exist.")
+            console.log("Error:", error.response.data.error);
+            alert(error.response.data.error)
         });
     }, []);
     
@@ -59,6 +59,7 @@ const Question = () => {
         axios
           .post(`${process.env.REACT_APP_BACKEND_URL}/questions/${id}/answer`, userAnswer)
           .then((response) => {
+            console.log("response is", response)
             const answerRes = response.data.answer;
             setAnswer(answer => [...answer, response.data.answer])
             if (answerRes) {
@@ -66,8 +67,9 @@ const Question = () => {
             }
           })
           .catch((error) => {
-            console.log("Error:", error);
-            alert("Couldn't submit the answer, please leave something here.");
+            console.log("Error is:", error.response.data.error);
+            // alert("Couldn't submit the answer, please leave something here.");
+            alert(error.response.data.error)
           });
       };
     const getRelativeTime = (time => {
@@ -79,13 +81,34 @@ const Question = () => {
 
     const askTime = getRelativeTime(question.date_asked)
 
+    const voteQuestion = () => {
+        const newVote = {
+            question_id: id,
+            author_id: user.id
+        }
+        axios
+        .post(`${process.env.REACT_APP_BACKEND_URL}/questions/${id}/vote`, newVote)
+        .then((response) => {
+            const voteRes = response.data.vote
+            setVote(vote+1)
+            if (voteRes) {
+                history.push(`/questions/${id}`);
+            }
+        })
+          .catch((error) => {
+            console.log("Error:", error);
+            // alert("Couldn't submit the answer, please leave something here.");
+            alert(error)
+          });
+    }
+
 
     return (
 
         <main>
             <div className="qacontainer">
                 <section className="question">
-                    <h1 className="questiontitle">{question.title}</h1>
+                    <h1 className="questiontitle"><p className="qtitle">{question.title}</p></h1>
                     <div className="qtag">
                         <div className='tagStyle'>{question.age}</div>
                         <div className='tagStyle'>{question.category}</div>
@@ -104,7 +127,7 @@ const Question = () => {
                             <p className="content">{question.content}</p>
                             <div className="replyarea">
                                 <div className="likebtn"> 
-                                    <img src={heart} className="heart" alt="likebtn"></img>
+                                    <img src={heart} className="heart" alt="likebtn" onClick={voteQuestion}></img>
                                     <span className="votecnt">{vote}  Likes</span>
                                 </div>
                                 <div className="replybtn"> 
@@ -150,7 +173,15 @@ const Question = () => {
                         </div>
                     </form>
                 </section>
-        </div>
+                <div className="bg1"></div>
+                <div className="bg2"></div>
+            </div>
+            <span className="star"></span>
+            <span className="star"></span>
+            <span className="star"></span>
+            <span className="star"></span>
+            <span className="star"></span>
+            <span className="star"></span>
         </main>
     )
 };
