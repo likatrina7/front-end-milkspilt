@@ -15,6 +15,6 @@ img {
 }
 
 .dark {
-  background-color: grey;
+  background: linear-gradient(to bottom, #112047, #a0adcb);
   color: #fff;
 }

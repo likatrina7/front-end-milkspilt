@@ -16,6 +16,7 @@ import ContactPhoneIcon from "@material-ui/icons/ContactPhone";
 import "./Menu.css";
 import { useHistory } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
+import logo from "../media/milk_spilt_logo.png";
 
 const useStyles = makeStyles({
   list: {
@@ -90,9 +91,6 @@ export default function Menu() {
           </ListItemIcon>
           <ListItemText primary="Post Question" />
         </ListItem>
-      </List>
-      <Divider />
-      <List>
         <ListItem button key="About" onClick={handleAboutClick}>
           <ListItemIcon>
             <InfoIcon />
@@ -115,6 +113,11 @@ export default function Menu() {
         <MenuIcon />
       </Button>
       <Drawer anchor="left" open={menuOpen} onClose={toggleDrawer(false)}>
+        <div className="menu-co-sec">
+          <img src={logo} alt="Milk Spilt Logo" className="logo" />
+          <div className="menu-name">Milk Spilt</div>
+        </div>
+        <Divider />
         {list}
       </Drawer>
     </div>

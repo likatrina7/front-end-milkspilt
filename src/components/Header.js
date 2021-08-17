@@ -36,15 +36,20 @@ const Header = () => {
 
   return (
     <header className="home-header">
-      <div className="logo-area">
-        <Menu />
-        <Link to={redirectPath}>
-          <img src={logo} alt="Milk Spilt Logo" className="logo" />
-        </Link>
-        <Link to={redirectPath} className="co-name">
-          Milk Spilt
-        </Link>
-      </div>
+      {user.id ? <Menu /> : ""}
+      {user.id ? (
+        ""
+      ) : (
+        <div className="logo-area">
+          <Link to={redirectPath}>
+            <img src={logo} alt="Milk Spilt Logo" className="logo" />
+          </Link>
+
+          <Link to={redirectPath} className="co-name">
+            Milk Spilt
+          </Link>
+        </div>
+      )}
       <div className="search-area">
         <input
           type="text"

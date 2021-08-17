@@ -3,6 +3,7 @@ import "./newHome.css";
 import video from "../media/nightsky.mp4";
 import icon from "../media/user-icon.jpg";
 import moon from "../media/moon.png";
+import Header from "../components/Header.js";
 
 const Home = () => {
   return (
@@ -26,18 +27,19 @@ const Home = () => {
         </div>
         <h1 className="daily-question-title">Top Daily Parenting Questions</h1>
       </section> */}
-    
-
-    <div class="skyvideo">
+      <Header />
+      <div class="skyvideo">
         <video src={video} controls autoPlay loop></video>
         <div className="overlay">
-            <p className="p1">Find Best Answers to</p>
-            <p className="p2">Your <span className="parent">PARENTING</span> questions</p>
-            <p className="p3">And Share your Wisdom here!</p>
+          <p className="p1">Find Best Answers to</p>
+          <p className="p2">
+            Your <span className="parent">PARENTING</span> Questions
+          </p>
+          <p className="p3">And Share Your Wisdom with others!</p>
         </div>
         <div className="textbg"></div>
         {/* <img src={moon} alt="moon" className="moon" /> */}
-    </div>
+      </div>
       {/* <section className="ending-area">
         <p>
           How do you think your parenting skills stack up? Want to be a better
