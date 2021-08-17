@@ -141,7 +141,7 @@ const Question = () => {
                     alt="likebtn"
                     onClick={voteQuestion}
                   ></img>
-                  <span className="votecnt">{vote} Likes</span>
+                  <span className="votecnt"><span className="votenum">{vote}</span>Likes</span>
                 </div>
                 <div className="replybtn">
                   <a href="#reply">

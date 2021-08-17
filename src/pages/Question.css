@@ -79,6 +79,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    text-align: justify;
 }
 
 .question {
@@ -113,7 +114,7 @@
 
 .votenum {
     color: rgb(253, 91, 91);
-    margin-right: 6px;
+    margin-right: 8px;
 }
 
 .replybtn {
@@ -383,17 +384,18 @@ img.heart {
     }
 
     .questionbody {
-        width: 45vw;
-        margin-left: 20px;
+        width: 47vw;
+        margin-left: 10px;
     }
 
     .questionuser {
         padding-right: 0px;
-        margin: 0px 10px 0px 20px;
+        margin: 0px 0px 0px 0px;
     }
 
     .questioninfo {
         justify-content: flex-start;
+        text-align: justify;
     }
     
     .box {
@@ -404,16 +406,17 @@ img.heart {
 @media screen and (min-device-width: 1306px) and (max-device-width: 1500px) {
     .questionuser {
         padding-right: 0px;
-        margin: 0px 10px 0px 20px;
+        margin: 0px 0px 0px 40px;
     }
 
     .qacontainer {
         display: grid;
-        grid-template-columns: 17.5% 65% 17.5%;
+        grid-template-columns: 18% 64% 18%;
     }
 
     .questioninfo {
         justify-content: space-around;
+        text-align: justify;
     }
 
     .response-input {
@@ -423,8 +426,8 @@ img.heart {
     }
 
     .questionbody {
-        width: 40vw;
-        margin-right: 20px;
+        width: 44vw;
+        margin-right: 35px;
     }
 
     .box {
