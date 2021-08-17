@@ -22,6 +22,7 @@ const Question = () => {
   const { isDarkMode } = useContext(DarkModeContext);
   let answerid = 0;
 
+
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BACKEND_URL}/questions/${id}`)
@@ -134,11 +135,16 @@ const Question = () => {
                 <img src={question.avatar} alt="user"></img>
                 <div>{question.username}</div>
               </div>
-              <div className="questionbody">
-                <h3 className="innertitle">{question.title}</h3>
-                <div className="timedata">
-                  <div className="time">{askTime}</div>
-                  <div className="view">{question.views} views</div>
+              <p className="content">{question.content}</p>
+              <div className="replyarea">
+                <div className="likebtn">
+                  <img
+                    src={heart}
+                    className="heart"
+                    alt="likebtn"
+                    onClick={voteQuestion}
+                  ></img>
+                  <span className="votecnt"><span className="votenum">{vote}</span>Likes</span>
                 </div>
                 <p className="content">{question.content}</p>
                 <div className="replyarea">
