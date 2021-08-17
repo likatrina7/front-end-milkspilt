@@ -135,6 +135,12 @@ const Question = () => {
                 <img src={question.avatar} alt="user"></img>
                 <div>{question.username}</div>
               </div>
+              <div className="questionbody">
+                <h3 className="innertitle">{question.title}</h3>
+                <div className="timedata">
+                    <div className="time">{askTime}</div>                        
+                    <div className="view">{question.views} views</div>
+                </div>
               <p className="content">{question.content}</p>
               <div className="replyarea">
                 <div className="likebtn">
@@ -146,17 +152,6 @@ const Question = () => {
                   ></img>
                   <span className="votecnt"><span className="votenum">{vote}</span>Likes</span>
                 </div>
-                <p className="content">{question.content}</p>
-                <div className="replyarea">
-                  <div className="likebtn">
-                    <img
-                      src={heart}
-                      className="heart"
-                      alt="likebtn"
-                      onClick={voteQuestion}
-                    ></img>
-                    <span className="votecnt">{vote} Likes</span>
-                  </div>
                   <div className="replybtn">
                     <a href="#reply">
                       <div className="rbtn">Reply</div>

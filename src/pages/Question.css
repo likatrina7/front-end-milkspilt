@@ -46,6 +46,7 @@
   margin: 30px 30px 5px 30px;
   font-size: 30px;
   text-align: center;
+  text-overflow: clip;
   font-family: "Fira Code", monospace;
   color: #2e9ae2bb;
   font-weight: bold;
@@ -430,11 +431,15 @@ img.heart {
     }
 
     .questioninfo {
-        justify-content: flex-start;
+        justify-content: center;
         text-align: justify;
     }
     
     .box {
+        width: 60vw;
+    }
+
+    .bg3 {
         width: 60vw;
     }
 }
@@ -468,6 +473,10 @@ img.heart {
 
     .box {
         width: 60vw;
+    }
+
+    .bg3 {
+        width: 64vw;
     }
 
 }
