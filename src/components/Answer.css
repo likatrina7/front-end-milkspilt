@@ -56,3 +56,18 @@
         margin-right: 30px;
     }
 }
+
+@media screen and (min-device-width: 1306px) and (max-device-width: 1500px) {
+    .answer_body {
+        width: 40vw;
+    }
+
+    .answeruser {
+        margin-right: 30px;
+    }
+
+    .answer_content {
+        display: flex;
+        justify-content: space-around;
+    }
+}

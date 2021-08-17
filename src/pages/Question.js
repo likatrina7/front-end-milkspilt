@@ -28,8 +28,9 @@ const Question = () => {
             getAnswer(response.data.answer)
         })
         .catch((error) => {
-            console.log("Error:", error.response.data.error);
-            alert(error.response.data.error)
+            // console.log("Error:", error.response.data.error);
+            console.log("Error:", error);
+            // alert(error.response.data.error)
         });
     }, []);
     
@@ -128,7 +129,7 @@ const Question = () => {
                             <div className="replyarea">
                                 <div className="likebtn"> 
                                     <img src={heart} className="heart" alt="likebtn" onClick={voteQuestion}></img>
-                                    <span className="votecnt">{vote}  Likes</span>
+                                    <span className="votecnt"><br /><span className="votenum">{vote}</span>  Likes</span>
                                 </div>
                                 <div className="replybtn"> 
                                     <a href="#reply"><div className="rbtn">Reply</div></a>

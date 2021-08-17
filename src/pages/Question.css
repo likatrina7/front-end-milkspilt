@@ -37,7 +37,7 @@
 .qacontainer {
     height: minmax(100%, max-content);
     display: grid;
-    grid-template-rows: minmax(70%, max-content) minmax(30%, max-content);
+    /* grid-template-rows: minmax(70%, max-content) minmax(30%, max-content); */
     grid-template-columns: 1fr 2fr 1fr;
     justify-items: center;
 }
@@ -47,7 +47,7 @@
     justify-content: center;
     transition: 0.3s;
     height: max-content;
-    width: 35vw;
+    width: 37vw;
     vertical-align: middle;
     background: rgba(169, 214, 236, 0.356);
     padding: 20px 20px 20px 20px;
@@ -108,7 +108,12 @@
 .votecnt {
     display: flex;
     flex-direction: row;
-    font-size: 15px;
+    font-size: 14px;
+}
+
+.votenum {
+    color: rgb(253, 91, 91);
+    margin-right: 6px;
 }
 
 .replybtn {
@@ -390,4 +395,40 @@ img.heart {
     .questioninfo {
         justify-content: flex-start;
     }
+    
+    .box {
+        width: 60vw;
+    }
+}
+
+@media screen and (min-device-width: 1306px) and (max-device-width: 1500px) {
+    .questionuser {
+        padding-right: 0px;
+        margin: 0px 10px 0px 20px;
+    }
+
+    .qacontainer {
+        display: grid;
+        grid-template-columns: 17.5% 65% 17.5%;
+    }
+
+    .questioninfo {
+        justify-content: space-around;
+    }
+
+    .response-input {
+        resize: none;
+        width: 600px;
+        height: 180px;
+    }
+
+    .questionbody {
+        width: 40vw;
+        margin-right: 20px;
+    }
+
+    .box {
+        width: 60vw;
+    }
+
 }
