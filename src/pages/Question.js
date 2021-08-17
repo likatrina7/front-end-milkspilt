@@ -32,13 +32,11 @@ const Question = () => {
         getAnswer(response.data.answer);
       })
       .catch((error) => {
-        console.log("Error:", error.response.data.error);
         alert(error.response.data.error);
       });
   }, []);
 
   const getAnswer = (a) => {
-    console.log("params", a);
     const queryParams = `params=${a}`;
 
     axios
@@ -67,16 +65,14 @@ const Question = () => {
         userAnswer
       )
       .then((response) => {
-        console.log("response is", response);
         const answerRes = response.data.answer;
         setAnswer((answer) => [...answer, response.data.answer]);
         if (answerRes) {
           history.push(`/questions/${answerRes.question_id}`);
         }
+        setResponse("")
       })
       .catch((error) => {
-        console.log("Error is:", error.response.data.error);
-        // alert("Couldn't submit the answer, please leave something here.");
         alert(error.response.data.error);
       });
   };
@@ -107,8 +103,6 @@ const Question = () => {
         }
       })
       .catch((error) => {
-        console.log("Error:", error);
-        // alert("Couldn't submit the answer, please leave something here.");
         alert(error);
       });
   };

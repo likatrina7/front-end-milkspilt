@@ -1,7 +1,7 @@
 .answer_content {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -23,6 +23,7 @@
     font-family: Rockwell;
     /* margin-left: 150px; */
     line-height: 40px;
+    text-align: justify;
 }
 
 .answer_body:after {
@@ -54,6 +55,11 @@
 
     .answeruser {
         margin-right: 30px;
+    }
+
+    .answer_content {
+        display: flex;
+        justify-content: space-around;
     }
 }
 
