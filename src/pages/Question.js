@@ -22,7 +22,6 @@ const Question = () => {
   const { isDarkMode } = useContext(DarkModeContext);
   let answerid = 0;
 
-
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BACKEND_URL}/questions/${id}`)
@@ -68,6 +67,7 @@ const Question = () => {
       )
       .then((response) => {
         console.log("response is", response);
+        setResponse("");
         const answerRes = response.data.answer;
         setAnswer((answer) => [...answer, response.data.answer]);
         if (answerRes) {
@@ -117,6 +117,19 @@ const Question = () => {
   const bgTwoClassName = `bg2 ${isDarkMode ? "" : "light"}`;
   const starClass = `${isDarkMode ? "star" : ""}`;
 
+  let ageText = "";
+  if (question.age === "0") {
+    ageText = "Baby";
+  } else if (question.age === "1") {
+    ageText = "Toddler";
+  } else if (question.age === "2") {
+    ageText = "T3-T5";
+  } else if (question.age === "3") {
+    ageText = "T6-T8";
+  } else if (question.age === "4") {
+    ageText = "T9-T12";
+  }
+
   return (
     <React.Fragment>
       <Header />
@@ -127,7 +140,7 @@ const Question = () => {
               <p className="qtitle">{question.title}</p>
             </h1>
             <div className="qtag">
-              <div className="tagStyle">{question.age}</div>
+              <div className="tagStyle">{ageText}</div>
               <div className="tagStyle">{question.category}</div>
             </div>
             <div className="questioninfo">
@@ -138,20 +151,22 @@ const Question = () => {
               <div className="questionbody">
                 <h3 className="innertitle">{question.title}</h3>
                 <div className="timedata">
-                    <div className="time">{askTime}</div>                        
-                    <div className="view">{question.views} views</div>
+                  <div className="time">{askTime}</div>
+                  <div className="view">{question.views} views</div>
                 </div>
-              <p className="content">{question.content}</p>
-              <div className="replyarea">
-                <div className="likebtn">
-                  <img
-                    src={heart}
-                    className="heart"
-                    alt="likebtn"
-                    onClick={voteQuestion}
-                  ></img>
-                  <span className="votecnt"><span className="votenum">{vote}</span>Likes</span>
-                </div>
+                <p className="content">{question.content}</p>
+                <div className="replyarea">
+                  <div className="likebtn">
+                    <img
+                      src={heart}
+                      className="heart"
+                      alt="likebtn"
+                      onClick={voteQuestion}
+                    ></img>
+                    <span className="votecnt">
+                      <span className="votenum">{vote}</span>Likes
+                    </span>
+                  </div>
                   <div className="replybtn">
                     <a href="#reply">
                       <div className="rbtn">Reply</div>
