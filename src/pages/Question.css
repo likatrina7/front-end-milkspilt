@@ -309,7 +309,7 @@ img.heart {
 }
 
 .box-sm {
-  height: 4px;
+  height: 8px;
   margin: 0;
   flex-grow: 1;
   transition: all 0.8s ease-in-out;
